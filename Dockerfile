@@ -9,7 +9,7 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-ARG DEV=false  #Здесь false а в docker-compose.yml файле -DEV=true, потому что image мы будем создавать с помощью docker compose, а само приложение запускать через dockerfile, поэтому если мы вызываем dockerfile, то по условию будут использоваться библиотеки из requirements.txt, а не requirements.dev.txt
+ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
